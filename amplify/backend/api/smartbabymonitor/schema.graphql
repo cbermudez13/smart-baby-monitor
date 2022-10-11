@@ -1,0 +1,15 @@
+type Sensors @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Oxygen: Int
+  Humidity: Int
+  BodyTemp: Int
+  RoomTemp: Int
+}
+
+type Infant @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  isMonitored: Boolean
+  InfantSensors: Sensors @hasOne
+}
+ 

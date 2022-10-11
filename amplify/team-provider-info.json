@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-smartbabymonitor-staging-33501-authRole",
+      "UnauthRoleArn": "arn:aws:iam::475563029428:role/amplify-smartbabymonitor-staging-33501-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::475563029428:role/amplify-smartbabymonitor-staging-33501-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-smartbabymonitor-staging-33501-deployment",
+      "UnauthRoleName": "amplify-smartbabymonitor-staging-33501-unauthRole",
+      "StackName": "amplify-smartbabymonitor-staging-33501",
+      "StackId": "arn:aws:cloudformation:us-east-1:475563029428:stack/amplify-smartbabymonitor-staging-33501/affc6cd0-4915-11ed-8405-12a61911d817",
+      "AmplifyAppId": "d1nivy287o14vl"
+    },
+    "categories": {
+      "auth": {
+        "smartbabymonitor": {}
+      }
+    }
+  }
+}
