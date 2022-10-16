@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/items": {
+      "name": "/items",
+      "lambdaFunction": "smartbabymonitor3a1c4aa4",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

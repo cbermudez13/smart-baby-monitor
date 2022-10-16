@@ -11,7 +11,7 @@ import {
   Platform,
 } from 'react-native';
 import { DataStore } from 'aws-amplify';
-import { Infant } from './models/index.js';
+import { Infant } from '../../models/index.js';
 
 const Header = () => (
   <View style={styles.headerContainer}>
@@ -144,7 +144,7 @@ const InfantList = () => {
   );
 };
 
-const Home = () => {
+const HomeScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -260,4 +260,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default HomeScreen;

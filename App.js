@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Switch} from 'react-native';
 import { Amplify } from 'aws-amplify';
 import awsconfig from './src/aws-exports';
 import { DataStore } from '@aws-amplify/datastore';
-import Home from './src/Home';
+import HomeScreen from './src/screens/HomeScreen/index.js';
 Amplify.configure(awsconfig)
 
 /*await DataStore.save(
@@ -20,7 +20,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar />
-      <Home />
+      <HomeScreen />
     </View>
   );
 }

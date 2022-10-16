@@ -14,6 +14,11 @@
     "categories": {
       "auth": {
         "smartbabymonitor": {}
+      },
+      "function": {
+        "smartbabymonitor3a1c4aa4": {
+          "awsenv": "1"
+        }
       }
     }
   }
