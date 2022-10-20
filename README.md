@@ -22,3 +22,8 @@ AWS Kinesis Streams, AWS IoT Core, GraphQL, REST APIs.
 To access AWS resources outside of this Amplify app, edit the .\amplify\backend\function\smartbabymonitor3a1c4aa4\custom-policies.json
 "amplify push" builds all of your local backend resources and provisions them in the cloud
 "amplify publish" builds all of your local backend and front-end resources (if you added hosting category) and provisions them in the cloud
+
+Git commands: 
+git add .                   //Stages ALL changes
+git commit -m "<message>"   //commits staged changes locally
+git push origin main        //pushes changes to main branch
