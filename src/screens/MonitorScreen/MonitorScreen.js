@@ -144,7 +144,7 @@ const InfantList = () => {
   );
 };
 
-const HomeScreen = () => {
+const MonitorScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -260,4 +260,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default MonitorScreen;

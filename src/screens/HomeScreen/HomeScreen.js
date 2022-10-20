@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { DataStore } from 'aws-amplify';
 import { Infant } from '../../models/index.js';
+//import MonitorScreen from '../MonitorScreen/index.js';
 
 const Header = () => (
   <View style={styles.headerContainer}>
