@@ -20,7 +20,7 @@ Amplify.configure(awsconfig)
 );*/
 
 function App() {
-   // Auth.signOut();
+    Auth.signOut();
   return (
    /* <View style={styles.container}>
       <StatusBar />

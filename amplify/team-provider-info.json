@@ -13,12 +13,19 @@
     },
     "categories": {
       "auth": {
-        "smartbabymonitor": {}
+        "smartbabymonitor": {},
+        "userPoolGroups": {}
       },
       "function": {
         "smartbabymonitor3a1c4aa4": {
-          "awsenv": "1"
+          "awsenv": "1",
+          "deploymentBucketName": "amplify-smartbabymonitor-staging-33501-deployment",
+          "s3Key": "amplify-builds/smartbabymonitor3a1c4aa4-722f3941424a58732b63-build.zip"
         }
+      },
+      "api": {
+        "smartbabymonitor": {},
+        "api7b9d9158": {}
       }
     }
   }
