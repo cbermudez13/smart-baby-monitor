@@ -7,9 +7,15 @@ import { withAuthenticator} from 'aws-amplify-react-native/dist/Auth';
 import { AmplifyTheme } from 'aws-amplify-react-native';
 import HomeScreen from './src/screens/HomeScreen/index.js';
 import Navigation from './src/navigation';
+import SensorScreen from './src/screens/SensorScreen/index.js';
 
-Amplify.configure(awsconfig)
-
+//Amplify.configure(awsconfig)
+Amplify.configure({
+    ...awsconfig,
+    Analytics: { 
+      disabled: true
+    }
+});
 /*await DataStore.save(
   new Infant({
   "Oxygen": "Lorem ipsum dolor sit amet",
@@ -20,14 +26,15 @@ Amplify.configure(awsconfig)
 );*/
 
 function App() {
-   Auth.signOut();
+    //Auth.signOut();
   return (
    /* <View style={styles.container}>
       <StatusBar />
       <HomeScreen />
     </View>*/
      <SafeAreaView style={styles.root}>
-     <Navigation />
+    {/* <Navigation />*/} 
+    <SensorScreen/>
    </SafeAreaView>
   );
 }
