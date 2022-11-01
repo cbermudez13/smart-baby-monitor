@@ -8,6 +8,8 @@ Getting started:
     - npm install aws-amplify aws-amplify-react-native 
     amazon-cognito-identity-js @react-native-community/netinfo @react-native-async-storage/async-storage @react-native-picker/picker
     - amplify pull --appId d1nivy287o14vl --envName staging
+    - npm install @react-native-picker/picker --save --legacy-peer-deps
+    - npm audit fix --force
 - To run live server: expo start
 - To use IOS environment: Scan qr code and run expo server on IOS using expo go app (download from App Store)
 
@@ -22,8 +24,3 @@ AWS Kinesis Streams, AWS IoT Core, GraphQL, REST APIs.
 To access AWS resources outside of this Amplify app, edit the .\amplify\backend\function\smartbabymonitor3a1c4aa4\custom-policies.json
 "amplify push" builds all of your local backend resources and provisions them in the cloud
 "amplify publish" builds all of your local backend and front-end resources (if you added hosting category) and provisions them in the cloud
-
-Git commands: 
-git add .                   //Stages ALL changes
-git commit -m "<message>"   //commits staged changes locally
-git push origin main        //pushes changes to main branch
