@@ -26,7 +26,7 @@ Amplify.configure({
 );*/
 
 function App() {
-    //Auth.signOut();
+   //Auth.signOut();
   return (
    /* <View style={styles.container}>
       <StatusBar />

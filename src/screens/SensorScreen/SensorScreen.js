@@ -27,7 +27,11 @@ PubSub.subscribe(SUB_TOPIC).subscribe({
 });
 
 const SensorScreen = () => {
-  
+  /*
+  * Find a way to display sensor data on mobile app
+  * data.value.farenheit ---> display farenheit value
+  *
+  */
     
 }
 
