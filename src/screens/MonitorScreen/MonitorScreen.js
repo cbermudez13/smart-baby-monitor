@@ -13,7 +13,7 @@ const MonitorScreen = () => {
         ref={video}
         style={styles.video}
         source={{
-          uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+          uri: 'https://b-5c274045.kinesisvideo.us-east-1.amazonaws.com/hls/v1/getHLSMasterPlaylist.m3u8?SessionToken=CiCsKHjYbNqs2SFDJ_P4oUZdQQ6vy2rrd_sVz7svRvaA0hIQPMuITLaB6ldAz9ZvO7wVBxoZbkLyFR7K4N3jErSeZF5zKg6sS7_oDbccnCIgwOkKq8jPD7ydd3uitbnjB3K5opGrlJT8DiH9HdFhH2M~',
         }}
         useNativeControls
         resizeMode="contain"
