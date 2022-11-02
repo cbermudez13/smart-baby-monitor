@@ -13,8 +13,14 @@ import {
 import { DataStore } from 'aws-amplify';
 import { Infant } from '../../models/index.js';
 
-const Header = () => (
+const SettingsScreen = () => {
+
+  return(
   <View style={styles.headerContainer}>
     <Text style={styles.headerTitle}>Settings</Text>
   </View>
-);
+
+  );
+};
+
+export default SettingsScreen;

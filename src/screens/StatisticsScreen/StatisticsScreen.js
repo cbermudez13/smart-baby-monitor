@@ -13,8 +13,15 @@ import {
 import { DataStore } from 'aws-amplify';
 import { Infant } from '../../models/index.js';
 
-const Header = () => (
+const StatisticsScreen = () => {
+
+  return(
+    
   <View style={styles.headerContainer}>
     <Text style={styles.headerTitle}>Statistics of my Infant</Text>
   </View>
-);
+
+  );
+};
+
+export default StatisticsScreen;

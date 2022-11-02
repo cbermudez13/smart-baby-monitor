@@ -9,9 +9,11 @@ import {
   TextInput,
   View,
   Platform,
+  Button
 } from 'react-native';
 import { DataStore } from 'aws-amplify';
 import { Infant } from '../../models/index.js';
+import {useNavigation} from '@react-navigation/native';
 //import MonitorScreen from '../MonitorScreen/index.js';
 
 const Header = () => (
@@ -147,23 +149,44 @@ const InfantList = () => {
 
 const HomeScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
+
+  const onMonitorPress = () => {
+    navigation.navigate('Monitor');
+  };
+  const onSensorPress = () => {
+    navigation.navigate('Sensors');
+  };
+  const onSettingsPress = () => {
+    navigation.navigate('Settings');
+  };
+  const onStatisticsPress = () => {
+    navigation.navigate('Statistics');
+  };
 
   return (
     <>
       <Header />
-      <InfantList />
+    {/*<InfantList />*/}  
+    {/*Navigate to livestream screen */}
       <Pressable
-        onPress={() => {
-          setModalVisible(true);
-        }}
+        onPress={onMonitorPress}
         style={[styles.buttonContainer, styles.floatingButton]}
       >
-        <Text style={styles.buttonText}>+ Add Infant</Text>
+        <Text style={styles.buttonText}>Start Monitoring</Text>
       </Pressable>
-      <AddInfantModal
+
+      {/*Navigate to sensor screen */}
+      {/*<Pressable
+        onPress={onSensorPress}
+        style={[styles.buttonContainer, styles.floatingButton]}
+      >
+      /*  <Text style={styles.buttonText}>View Temperature/Heart Rate</Text>
+      </Pressable>*/}
+     
+     {/*<AddInfantModal
         modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-      />
+        setModalVisible={setModalVisible}/>*/} 
     </>
   );
 };

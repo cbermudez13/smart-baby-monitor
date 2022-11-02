@@ -8,6 +8,7 @@ import { AmplifyTheme } from 'aws-amplify-react-native';
 import HomeScreen from './src/screens/HomeScreen/index.js';
 import Navigation from './src/navigation';
 import SensorScreen from './src/screens/SensorScreen/index.js';
+import MonitorScreen from './src/screens/MonitorScreen/MonitorScreen';
 
 //Amplify.configure(awsconfig)
 Amplify.configure({
@@ -32,9 +33,8 @@ function App() {
       <StatusBar />
       <HomeScreen />
     </View>*/
-     <SafeAreaView style={styles.root}>
-    {/* <Navigation />*/} 
-    <SensorScreen/>
+    <SafeAreaView style={styles.root}>
+    <Navigation />
    </SafeAreaView>
   );
 }
