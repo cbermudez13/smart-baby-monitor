@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import { Amplify, PubSub, Auth } from 'aws-amplify';
 import { AWSIoTProvider } from '@aws-amplify/pubsub';
-import awsmobile from '../../aws-exports'
+import awsmobile from '../../aws-exports';
+import {useNavigation} from '@react-navigation/native';
+import { View, StyleSheet, Button, Text } from 'react-native';
 
 Amplify.configure(awsmobile);
 
@@ -19,20 +21,75 @@ Auth.currentCredentials().then((info) => {
   console.log(cognitoIdentityId);
 });
 
+var sensorData; 
 
-PubSub.subscribe(SUB_TOPIC).subscribe({
-  next: data => console.log('Message received', data.value),
-  error: error => console.error(error),
-  complete: () => console.log('Done'),
-});
+
+
+
 
 const SensorScreen = () => {
   /*
   * Find a way to display sensor data on mobile app
   * data.value.farenheit ---> display farenheit value
-  *
   */
+  const [tempVal, setTempVal] = useState(1);
+  const navigation = useNavigation();
+
+  useEffect(()=> {
+    PubSub.subscribe(SUB_TOPIC).subscribe({
+      next: data => setTempVal(data.value.Fahrenheit),
+      error: error => console.error(error),
+      complete: () => console.log('Done'),
+    });
+  },[])
+  return (
+    
+    <View style={styles.container}>
+      
+      
+      <Button style={[styles.buttons]} title="Go back" onPress={() => navigation.goBack()} />
+      <Text style={styles.titleText}>
+        Temperature: {tempVal}
+     </Text>
+
+    </View>
+  );
     
 }
+
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'start',
+    backgroundColor: '#ecf0f1',
+  },
+  video: {
+    alignSelf: 'center',
+    width: 320,
+    height: 200,
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'start',
+    alignItems: 'start',
+    bottom: 400,
+    elevation: 5,
+  },
+  baseText: {
+    fontFamily: "Cochin"
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: 'center',
+    justifyContent: 'center',
+    position: 'center',
+    bottom: -300,
+   
+  },
+  
+});
 
 export default SensorScreen;

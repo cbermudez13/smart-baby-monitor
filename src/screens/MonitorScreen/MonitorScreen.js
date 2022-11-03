@@ -3,6 +3,9 @@ import { View, StyleSheet, Button } from 'react-native';
 import { Video, AVPlaybackStatus } from 'expo-av';
 import {useNavigation} from '@react-navigation/native';
 
+
+/*for sample video for test: https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4 */
+
 const MonitorScreen = () => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
@@ -13,14 +16,14 @@ const MonitorScreen = () => {
         ref={video}
         style={styles.video}
         source={{
-          uri: 'https://b-5c274045.kinesisvideo.us-east-1.amazonaws.com/hls/v1/getHLSMasterPlaylist.m3u8?SessionToken=CiCsKHjYbNqs2SFDJ_P4oUZdQQ6vy2rrd_sVz7svRvaA0hIQPMuITLaB6ldAz9ZvO7wVBxoZbkLyFR7K4N3jErSeZF5zKg6sS7_oDbccnCIgwOkKq8jPD7ydd3uitbnjB3K5opGrlJT8DiH9HdFhH2M~',
+          uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
         }}
         useNativeControls
         resizeMode="contain"
         isLooping
         onPlaybackStatusUpdate={status => setStatus(() => status)}
       />
-      <View style={styles.buttons}>
+      <View style={styles.container}>
         <Button
           title={status.isPlaying ? 'Pause' : 'Play'}
           onPress={() =>
@@ -28,7 +31,9 @@ const MonitorScreen = () => {
           }
         />
       </View>
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <View style={styles.buttons}>
+        <Button title="Go back" onPress={() => navigation.goBack()} />
+      </View>
     </View>
   );
 }
@@ -41,13 +46,16 @@ const styles = StyleSheet.create({
   },
   video: {
     alignSelf: 'center',
-    width: 320,
-    height: 200,
+    width: 430,
+    height: 350,
+    bottom: 10,
   },
   buttons: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'start',
     alignItems: 'center',
+    bottom: 400,
+    elevation: 5,
   },
 });
 

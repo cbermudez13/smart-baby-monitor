@@ -17,8 +17,8 @@ import {useNavigation} from '@react-navigation/native';
 //import MonitorScreen from '../MonitorScreen/index.js';
 
 const Header = () => (
-  <View style={styles.headerContainer}>
-    <Text style={styles.headerTitle}>My Infant List</Text>
+  <View style={monitorStyle.headerContainer}>
+    <Text style={monitorStyle.headerTitle}>Smart Baby Monitor</Text>
   </View>
 );
 const AddInfantModal = ({ modalVisible, setModalVisible }) => {
@@ -53,10 +53,10 @@ const AddInfantModal = ({ modalVisible, setModalVisible }) => {
       transparent
       visible={modalVisible}
     >
-      <View style={styles.modalContainer}>
-        <View style={styles.modalInnerContainer}>
-          <Pressable onPress={closeModal} style={styles.modalDismissButton}>
-            <Text style={styles.modalDismissText}>X</Text>
+      <View style={monitorStyle.modalContainer}>
+        <View style={monitorStyle.modalInnerContainer}>
+          <Pressable onPress={closeModal} style={monitorStyle.modalDismissButton}>
+            <Text style={monitorStyle.modalDismissText}>X</Text>
           </Pressable>
           <TextInput
             onChangeText={setName}
@@ -70,8 +70,8 @@ const AddInfantModal = ({ modalVisible, setModalVisible }) => {
             onValueChange={toggleSwitch}
             value={setIsMonitored}
           />
-          <Pressable onPress={addInfant} style={styles.buttonContainer}>
-            <Text style={styles.buttonText}>Save new Infant</Text>
+          <Pressable onPress={addInfant} style={monitorStyle.buttonContainer}>
+            <Text style={monitorStyle.buttonText}>Save new Infant</Text>
           </Pressable>
         </View>
       </View>
@@ -124,14 +124,14 @@ const InfantList = () => {
       onPress={() => {
         setComplete(!item.isComplete, item);
       }}
-      style={styles.infantContainer}
+      style={monitorStyle.infantContainer}
     >
       <Text>
-        <Text style={styles.infantHeading}>{item.name}</Text>
+        <Text style={monitorStyle.infantHeading}>{item.name}</Text>
         {`\n${item.description}`}
       </Text>
       <Text
-        style={[styles.checkbox, item.isComplete && styles.completedCheckbox]}
+        style={[monitorStyle.checkbox, item.isComplete && monitorStyle.completedCheckbox]}
       >
         {item.isComplete ? '✓' : ''}
       </Text>
@@ -171,18 +171,18 @@ const HomeScreen = () => {
     {/*Navigate to livestream screen */}
       <Pressable
         onPress={onMonitorPress}
-        style={[styles.buttonContainer, styles.floatingButton]}
+        style={[monitorStyle.buttonContainer, monitorStyle.floatingButton]}
       >
-        <Text style={styles.buttonText}>Start Monitoring</Text>
+        <Text style={monitorStyle.buttonText}>Start Monitoring</Text>
       </Pressable>
 
       {/*Navigate to sensor screen */}
-      {/*<Pressable
+      <Pressable
         onPress={onSensorPress}
-        style={[styles.buttonContainer, styles.floatingButton]}
+        style={[monitorStyle.buttonContainer, sensorStyle.floatingButton]}
       >
-      /*  <Text style={styles.buttonText}>View Temperature/Heart Rate</Text>
-      </Pressable>*/}
+        <Text style={monitorStyle.buttonText}>Sensors</Text>
+      </Pressable>
      
      {/*<AddInfantModal
         modalVisible={modalVisible}
@@ -191,7 +191,7 @@ const HomeScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const monitorStyle = StyleSheet.create({
   headerContainer: {
     backgroundColor: '#4696ec',
     paddingTop: Platform.OS === 'ios' ? 44 : 0,
@@ -243,14 +243,14 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignSelf: 'center',
-    backgroundColor: '#4696ec',
+    backgroundColor: '#b278de',
     borderRadius: 99,
     paddingHorizontal: 8,
   },
   floatingButton: {
     position: 'absolute',
-    bottom: 44,
-    elevation: 6,
+    bottom: 500,
+    elevation: 5,
     shadowOffset: {
       height: 4,
       width: 1,
@@ -282,6 +282,22 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
   },
+});
+
+const sensorStyle = StyleSheet.create({
+  
+  floatingButton: {
+    position: 'absolute',
+    bottom: 400,
+    elevation: 5,
+    shadowOffset: {
+      height: 4,
+      width: 1,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+  }
+  
 });
 
 export default HomeScreen;
