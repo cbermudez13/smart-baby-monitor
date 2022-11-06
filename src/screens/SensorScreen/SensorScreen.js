@@ -21,12 +21,6 @@ Auth.currentCredentials().then((info) => {
   console.log(cognitoIdentityId);
 });
 
-var sensorData; 
-
-
-
-
-
 const SensorScreen = () => {
   /*
   * Find a way to display sensor data on mobile app

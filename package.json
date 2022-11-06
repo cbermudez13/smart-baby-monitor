@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@aws-sdk/client-kinesis": "^3.202.0",
+    "@aws-sdk/client-kinesis-video-archived-media": "^3.202.0",
     "@react-native-async-storage/async-storage": "^1.17.10",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-community/netinfo": "9.3.0",
