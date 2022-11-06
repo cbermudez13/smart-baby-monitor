@@ -4,41 +4,9 @@ import { Video, AVPlaybackStatus } from 'expo-av';
 import {useNavigation} from '@react-navigation/native';
 import { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand  } from "@aws-sdk/client-kinesis-video-archived-media";
 
-//import { AWS  } from "@aws-sdk";
 
 
 /*for sample video for test: https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4 */
-
-/*
-async function getURL() {
-  
-  const accessKeyId = 'AKIAW5OOD6O2MI4G6H5V';
-  const secretAccessKey = 'KVJFNz+zvDqr0uVLycEeciepsG6FSpDJKxUKSeUj';
-  const region = 'us-east-1';
-  const streamName = 'LiveRekognitionVideoAnalysisBlog';
-  const streamARN = 'arn:aws:kinesisvideo:us-east-1:475563029428:stream/LiveRekognitionVideoAnalysisBlog/1661882647679';
-  const playbackMode = 'LIVE';
-
-  const options = {
-      accessKeyId: accessKeyId,
-      secretAccessKey: secretAccessKey,
-      region: region,
-  }
-  const params = {
-    StreamARN: streamARN,
-    StreamName: streamName,
-    PlaybackMode: playbackMode
-  };
-  const client = new KinesisVideoArchivedMediaClient(options);
-  const command = new GetHLSStreamingSessionURLCommand(params);
-
-  return client.send(command);
- 
-
- 
-}*/
-
-
 
 
 //Test with live stream
