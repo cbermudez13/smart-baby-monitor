@@ -18,16 +18,16 @@ const MonitorScreen = () => {
 
   const getURL = async () => {
 
-    const accessKeyId = 'AKIAW5OOD6O2MI4G6H5V';
-    const secretAccessKey = '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';
+    const accessKeyId = '#####';
+    const secretAccessKey = '####';
     const region = 'us-east-1';
     const streamName = 'LiveRekognitionVideoAnalysisBlog';
     const streamARN = 'arn:aws:kinesisvideo:us-east-1:475563029428:stream/LiveRekognitionVideoAnalysisBlog/1661882647679';
     const playbackMode = 'LIVE';
 
     const options = {
-      accessKeyId: accessKeyId,
-      secretAccessKey: secretAccessKey,
+    //  accessKeyId: accessKeyId,
+    //  secretAccessKey: secretAccessKey,
       region: region,
     };
     const params = {
