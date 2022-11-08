@@ -9,6 +9,8 @@ import HomeScreen from './src/screens/HomeScreen/index.js';
 import Navigation from './src/navigation';
 import SensorScreen from './src/screens/SensorScreen/index.js';
 import MonitorScreen from './src/screens/MonitorScreen/MonitorScreen';
+import 'react-native-url-polyfill/auto';
+import 'react-native-get-random-values';
 
 //Amplify.configure(awsconfig)
 Amplify.configure({

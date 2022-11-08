@@ -1,54 +1,66 @@
-import * as React from 'react';
+import React, {useState,useEffect} from 'react';
 import { View, StyleSheet, Button } from 'react-native';
 import { Video, AVPlaybackStatus } from 'expo-av';
 import {useNavigation} from '@react-navigation/native';
-import { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand  } from "@aws-sdk/client-kinesis-video-archived-media";
+import { KinesisVideoArchivedMedia } from "@aws-sdk/client-kinesis-video-archived-media";
 
 
 
 /*for sample video for test: https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4 */
 
 
-//Test with live stream
-
 const MonitorScreen = () => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
   const navigation = useNavigation();
+  const [url, setUrl] = useState(1);
+  
+  useEffect(() => {
+    const getURL = async () => {
 
-  const getURL = async () => {
-
-    const accessKeyId = '#####';
-    const secretAccessKey = '####';
-    const region = 'us-east-1';
-    const streamName = 'LiveRekognitionVideoAnalysisBlog';
-    const streamARN = 'arn:aws:kinesisvideo:us-east-1:475563029428:stream/LiveRekognitionVideoAnalysisBlog/1661882647679';
-    const playbackMode = 'LIVE';
-
-    const options = {
-    //  accessKeyId: accessKeyId,
-    //  secretAccessKey: secretAccessKey,
-      region: region,
-    };
-    const params = {
-      StreamARN: streamARN,
-      StreamName: streamName,
-      PlaybackMode: playbackMode
-    };
-
-    const client = new KinesisVideoArchivedMediaClient(options);
-    const command = new GetHLSStreamingSessionURLCommand(params);
-
-    try {
-      const data = await client.send(command);
-      console.log('data: ', data);
      
-    } catch (err) {
-      console.log("Custom Error", err);
-    }
-  };
 
-  const URL = getURL();
+
+      const accessKeyId = '';
+      const secretAccessKey = '';
+      const region = '';
+      const streamName = '';
+      const streamARN = '';
+      const playbackMode = 'LIVE';
+      const endpoint = '';
+  
+      const credentials = {
+        accessKeyId: accessKeyId,
+        secretAccessKey: secretAccessKey,
+      };
+    
+      const options = {
+        credentials: credentials,
+        endpoint: endpoint,
+        region: region,
+      };
+      const params = {
+        StreamARN: streamARN,
+        PlaybackMode: playbackMode
+      };
+  
+      const client = new KinesisVideoArchivedMedia(options);
+  
+  
+      try {
+       // const data = await client.send(command);
+        const data = await client.getHLSStreamingSessionURL(params);
+        setUrl(data.HLSStreamingSessionURL); 
+      
+     
+      } catch (err) {
+        console.log("Custom Error", err);
+      }
+    
+    };
+    getURL();
+  }, []);
+
 
 {/* uri: URL,*/}
   return (
@@ -58,8 +70,8 @@ const MonitorScreen = () => {
         style={styles.video}
         
         source={{
-          
-          uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+          //uri: url,
+          uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
         }}
         useNativeControls
         resizeMode="contain"
