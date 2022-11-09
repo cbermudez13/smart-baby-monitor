@@ -8,7 +8,7 @@ Getting started:
     - npm install aws-amplify aws-amplify-react-native 
     amazon-cognito-identity-js @react-native-community/netinfo @react-native-async-storage/async-storage @react-native-picker/picker
     - amplify pull --appId d1nivy287o14vl --envName staging
-    - npm install @react-native-picker/picker --save --legacy-peer-deps
+    - npm install @react-native-picker/picker@2.4.2 --save --legacy-peer-deps
     - npm audit fix --force
 - To run live server: expo start
 - To use IOS environment: Scan qr code and run expo server on IOS using expo go app (download from App Store)
