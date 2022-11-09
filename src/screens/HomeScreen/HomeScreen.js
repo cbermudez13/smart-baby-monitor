@@ -14,6 +14,7 @@ import {
 import { DataStore } from 'aws-amplify';
 import { Infant } from '../../models/index.js';
 import {useNavigation} from '@react-navigation/native';
+
 //import MonitorScreen from '../MonitorScreen/index.js';
 
 const Header = () => (
@@ -193,7 +194,7 @@ const HomeScreen = () => {
 
 const monitorStyle = StyleSheet.create({
   headerContainer: {
-    backgroundColor: '#4696ec',
+    backgroundColor: '#b278de',
     paddingTop: Platform.OS === 'ios' ? 44 : 0,
   },
   headerTitle: {

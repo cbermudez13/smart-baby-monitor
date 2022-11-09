@@ -28,7 +28,7 @@ const MonitorScreen = () => {
       const streamARN = '';
       const playbackMode = 'LIVE';
       const endpoint = '';
-  
+     
       const credentials = {
         accessKeyId: accessKeyId,
         secretAccessKey: secretAccessKey,
@@ -61,8 +61,6 @@ const MonitorScreen = () => {
     getURL();
   }, []);
 
-
-{/* uri: URL,*/}
   return (
     <View style={styles.container}>
       <Video

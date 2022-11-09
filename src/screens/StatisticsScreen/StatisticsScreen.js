@@ -17,8 +17,8 @@ const StatisticsScreen = () => {
 
   return(
     
-  <View style={styles.headerContainer}>
-    <Text style={styles.headerTitle}>Statistics of my Infant</Text>
+  <View>
+    <Text>Statistics of my Infant</Text>
   </View>
 
   );

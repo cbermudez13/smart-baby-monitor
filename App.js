@@ -6,7 +6,8 @@ import { DataStore } from '@aws-amplify/datastore';
 import { withAuthenticator} from 'aws-amplify-react-native/dist/Auth';
 import { AmplifyTheme } from 'aws-amplify-react-native';
 import HomeScreen from './src/screens/HomeScreen/index.js';
-import Navigation from './src/navigation';
+import Navigation from './src/navigation/index.js';
+import TabNavigation from './src/navigation/TabNavigation.js';
 import SensorScreen from './src/screens/SensorScreen/index.js';
 import MonitorScreen from './src/screens/MonitorScreen/MonitorScreen';
 import 'react-native-url-polyfill/auto';
@@ -36,7 +37,7 @@ function App() {
       <HomeScreen />
     </View>*/
     <SafeAreaView style={styles.root}>
-    <Navigation />
+      <TabNavigation/>
    </SafeAreaView>
   );
 }

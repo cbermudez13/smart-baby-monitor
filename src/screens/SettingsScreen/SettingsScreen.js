@@ -16,8 +16,8 @@ import { Infant } from '../../models/index.js';
 const SettingsScreen = () => {
 
   return(
-  <View style={styles.headerContainer}>
-    <Text style={styles.headerTitle}>Settings</Text>
+  <View >
+    <Text >Settings</Text>
   </View>
 
   );
