@@ -1,3 +1,4 @@
+import React, { Component, Fragment } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View, Switch} from 'react-native';
 import { Amplify, Auth } from 'aws-amplify';
@@ -36,16 +37,19 @@ function App() {
       <StatusBar />
       <HomeScreen />
     </View>*/
-    <SafeAreaView style={styles.root}>
+    <Fragment>
+    <SafeAreaView style={styles.root}/>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#da9afc' }}>
       <TabNavigation/>
    </SafeAreaView>
+   </Fragment>
   );
 }
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
-    backgroundColor: '#F9FBFC',
+    flex: 0,
+    backgroundColor: '#efd7fc',
   },
 });
 const signUpConfig = {
@@ -87,17 +91,17 @@ const customTheme = {
   ...AmplifyTheme,
   button: {
     ...AmplifyTheme.button,
-    backgroundColor: '#b278de',
+    backgroundColor: '#da9afc',
     borderRadius: 5,
   },
   sectionFooterLink: {
 		fontSize: 14,
-		color: '#b278de',
+		color: '#da9afc',
 		alignItems: 'baseline',
 		textAlign: 'center',
 	},
   buttonDisabled: {
-		backgroundColor: '#b278de80',
+		backgroundColor: '#da9afc80',
 		alignItems: 'center',
 		padding: 16,
 	},

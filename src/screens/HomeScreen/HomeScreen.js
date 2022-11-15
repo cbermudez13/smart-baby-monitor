@@ -14,6 +14,7 @@ import {
 import { DataStore } from 'aws-amplify';
 import { Infant } from '../../models/index.js';
 import {useNavigation} from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 //import MonitorScreen from '../MonitorScreen/index.js';
 
@@ -174,15 +175,7 @@ const HomeScreen = () => {
         onPress={onMonitorPress}
         style={[monitorStyle.buttonContainer, monitorStyle.floatingButton]}
       >
-        <Text style={monitorStyle.buttonText}>Start Monitoring</Text>
-      </Pressable>
-
-      {/*Navigate to sensor screen */}
-      <Pressable
-        onPress={onSensorPress}
-        style={[monitorStyle.buttonContainer, sensorStyle.floatingButton]}
-      >
-        <Text style={monitorStyle.buttonText}>Sensors</Text>
+        <Text style={monitorStyle.buttonText}>Monitor{"\n"}Infant</Text>
       </Pressable>
      
      {/*<AddInfantModal
@@ -194,13 +187,14 @@ const HomeScreen = () => {
 
 const monitorStyle = StyleSheet.create({
   headerContainer: {
-    backgroundColor: '#b278de',
-    paddingTop: Platform.OS === 'ios' ? 44 : 0,
+    backgroundColor: '#efd7fc',
+    //paddingTop: Platform.OS === 'ios' ? 50 : 0,
+    flex: 1
   },
   headerTitle: {
-    color: '#fff',
-    fontSize: 20,
-    fontWeight: '600',
+    color: '#da9afc',
+    fontSize: 40,
+    fontWeight: '700',
     paddingVertical: 16,
     textAlign: 'center',
   },
@@ -238,19 +232,26 @@ const monitorStyle = StyleSheet.create({
     color: '#fff',
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: '600',
-    padding: 16,
+    color: '#ffe6f7',
+    fontWeight: '800',
+    padding: 50,
+    fontSize: 35,
+    textAlign: 'center',
+    bottom: -30,
+
+
   },
   buttonContainer: {
     alignSelf: 'center',
-    backgroundColor: '#b278de',
-    borderRadius: 99,
+    backgroundColor: '#da9afc',
+    width: 250,
+    height: 250,
+    borderRadius: 200,
     paddingHorizontal: 8,
   },
   floatingButton: {
     position: 'absolute',
-    bottom: 500,
+    bottom: 300,
     elevation: 5,
     shadowOffset: {
       height: 4,
