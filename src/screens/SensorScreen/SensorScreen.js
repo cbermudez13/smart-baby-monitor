@@ -73,11 +73,21 @@ const SensorScreen = () => {
       complete: () => console.log('Done'),
     });
     PubSub.subscribe(SUB_TOPIC_ROOM_TEMP).subscribe({
-     // next: data => setTempVal(data.value),
-      next: data => setRoomTempVal(data.value),
+       next: data => setRoomTempVal(data.value.Temperature),
+       //next: data => console.log(data.value),
+       error: error => console.error(error),
+       complete: () => console.log('Done'),
+     });
+     PubSub.subscribe(SUB_TOPIC_ROOM_TEMP).subscribe({
+      next: data => setHumidityVal(data.value.Humidity),
+      //next: data => console.log(data.value),
       error: error => console.error(error),
       complete: () => console.log('Done'),
     });
+  },[])
+
+  useEffect(()=> {
+    
   },[])
 
   useEffect(() => {
@@ -103,7 +113,7 @@ const SensorScreen = () => {
 
   (async () => {
     /*Normal medical Range 80-150 BPM*/
-    if(heartRateVal > 200 || heartRateVal < -500){ 
+    if(heartRateVal > 500 || heartRateVal < -500){ 
       await sendBPMPushNotification(expoPushToken,heartRateVal);
     }
     
@@ -111,21 +121,21 @@ const SensorScreen = () => {
   
   (async () => {
     /*Normal medical Range 95-99*/
-    if(bodyTempVal > 200 || bodyTempVal < -500){
+    if(bodyTempVal > 500 || bodyTempVal < -500){
       await sendBodyTempPushNotification(expoPushToken,bodyTempVal);
     }
     
   })();
   /*Recommended Room temp 68-75 */
   (async () => {
-    if(roomTempVal > 200 || roomTempVal < -500){
+    if(roomTempVal > 500 || roomTempVal < -500){
       await sendRoomTempPushNotification(expoPushToken,roomTempVal);
     }
     
   })();
    /*Recommended Humidity 30-50% */
   (async () => {
-    if(humidityVal > 200 || humidityVal < -500){
+    if(humidityVal > 500 || humidityVal < -500){
       await sendHumidityPushNotification(expoPushToken,humidityVal);
     }
     
@@ -137,10 +147,9 @@ const SensorScreen = () => {
       <Header/>
       <Text style={styles.titleText}>
         Heart Rate: {Math.round(heartRateVal)} bpm {"\n"}{"\n"}
-        Oxygen level: 50% {"\n"}{"\n"}
-        Body temperature: {Number(bodyTempVal).toPrecision(2)}  {"\n"}{"\n"}
-        Room Temperature: 70 {"\n"}{"\n"}
-        Humidity: 30 {"\n"}{"\n"}
+        Body temperature: {bodyTempVal}  {"\n"}{"\n"}
+        Room Temperature: {roomTempVal} {"\n"}{"\n"}
+        Humidity: {humidityVal} {"\n"}{"\n"}
 
      </Text>
 

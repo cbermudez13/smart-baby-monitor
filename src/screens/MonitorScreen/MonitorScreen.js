@@ -22,8 +22,6 @@ const MonitorScreen = () => {
   useEffect(() => {
     const getURL = async () => {
 
-     
-
 
       const accessKeyId = '';
       const secretAccessKey = '';
@@ -74,8 +72,8 @@ const MonitorScreen = () => {
         style={styles.video}
         
         source={{
-          //uri: url,
-          uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
+          uri: url
+         // uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
         }}
         useNativeControls
         resizeMode="contain"
