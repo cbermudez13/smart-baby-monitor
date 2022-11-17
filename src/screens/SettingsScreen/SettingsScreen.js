@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Switch } from 'react-native';
-import { Text, View, Button, Platform, StyleSheet} from 'react-native';
+import { Text, View, Button, Platform, StyleSheet,Pressable} from 'react-native';
 import { DataStore } from 'aws-amplify';
 import { Infant } from '../../models/index.js';
+import { Amplify, Auth } from 'aws-amplify';
 const Header = () => {
 
     return(
@@ -12,11 +13,24 @@ const Header = () => {
   );
 }
 const SettingsScreen = () => {
-
+  const signOut = () => {
+    Auth.signOut()
+      .then(() => {
+        props.onStateChange('signedOut', null);
+      })
+      .catch(err => {
+        console.log('err: ', err)
+      })
+  }
   return(
   <View style={monitorStyle.container}>
     <Header/>
-    
+    <Pressable
+        onPress={signOut}
+        style={[monitorStyle.buttonContainer, monitorStyle.floatingButton]}
+      >
+        <Text style={monitorStyle.buttonText}>Sign out</Text>
+      </Pressable>
   </View>
 
   );
@@ -76,25 +90,24 @@ const monitorStyle = StyleSheet.create({
   },
   buttonText: {
     color: '#ffe6f7',
-    fontWeight: '800',
-    padding: 50,
-    fontSize: 35,
+    fontWeight: '500',
+    fontSize: 25,
     textAlign: 'center',
-    bottom: -30,
+    bottom: -10,
 
 
   },
   buttonContainer: {
     alignSelf: 'center',
     backgroundColor: '#da9afc',
-    width: 250,
-    height: 250,
+    width: 150,
+    height: 50,
     borderRadius: 200,
     paddingHorizontal: 8,
   },
   floatingButton: {
     position: 'absolute',
-    bottom: 300,
+    bottom: 400,
     elevation: 5,
     shadowOffset: {
       height: 4,

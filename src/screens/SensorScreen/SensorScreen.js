@@ -55,6 +55,7 @@ const SensorScreen = () => {
   const [bodyTempVal, setBodyTempVal] = useState(1);
   const [heartRateVal, setHeartRateVal] = useState(1);
   const [roomTempVal, setRoomTempVal] = useState(1);
+  const [humidityVal, setHumidityVal] = useState(1);
 
   const tempVal = 100;
 
@@ -101,22 +102,31 @@ const SensorScreen = () => {
 
 
   (async () => {
-    if(heartRateVal > 200){
+    /*Normal medical Range 80-150 BPM*/
+    if(heartRateVal > 200 || heartRateVal < -500){ 
       await sendBPMPushNotification(expoPushToken,heartRateVal);
     }
     
   })();
   
   (async () => {
-    if(bodyTempVal > 200){
+    /*Normal medical Range 95-99*/
+    if(bodyTempVal > 200 || bodyTempVal < -500){
       await sendBodyTempPushNotification(expoPushToken,bodyTempVal);
     }
     
   })();
-
+  /*Recommended Room temp 68-75 */
   (async () => {
-    if(roomTempVal > 200){
+    if(roomTempVal > 200 || roomTempVal < -500){
       await sendRoomTempPushNotification(expoPushToken,roomTempVal);
+    }
+    
+  })();
+   /*Recommended Humidity 30-50% */
+  (async () => {
+    if(humidityVal > 200 || humidityVal < -500){
+      await sendHumidityPushNotification(expoPushToken,humidityVal);
     }
     
   })();
@@ -126,9 +136,9 @@ const SensorScreen = () => {
     <View style={styles.container}>
       <Header/>
       <Text style={styles.titleText}>
-        Heart Rate: {heartRateVal} bpm {"\n"}{"\n"}
+        Heart Rate: {Math.round(heartRateVal)} bpm {"\n"}{"\n"}
         Oxygen level: 50% {"\n"}{"\n"}
-        Body temperature: {bodyTempVal}  {"\n"}{"\n"}
+        Body temperature: {Number(bodyTempVal).toPrecision(2)}  {"\n"}{"\n"}
         Room Temperature: 70 {"\n"}{"\n"}
         Humidity: 30 {"\n"}{"\n"}
 
@@ -196,6 +206,27 @@ async function sendRoomTempPushNotification(expoPushToken, roomTempVal) {
     body: JSON.stringify(message),
   });
 }
+
+async function sendHumidityPushNotification(expoPushToken, humidityVal) {
+  const message = {
+    to: expoPushToken,
+    sound: 'default',
+    title: 'Room Humidity Notification',
+    body: 'Room Humidity is at ' + humidityVal +'%. Check for safe room humidity!',
+    data: { someData: 'goes here' },
+  };
+
+  await fetch('https://exp.host/--/api/v2/push/send', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Accept-encoding': 'gzip, deflate',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(message),
+  });
+}
+
 
 async function registerForPushNotificationsAsync() {
   let token;
@@ -281,12 +312,13 @@ const styles = StyleSheet.create({
     fontFamily: "Cochin"
   },
   titleText: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "bold",
     textAlign: 'center',
     justifyContent: 'center',
     position: 'center',
     bottom: -200,
+    
    
   },
   
