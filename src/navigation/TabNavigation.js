@@ -28,8 +28,6 @@ const TabNavigation = () => {
             iconName = focused ? 'chart-box':'chart-box-outline';
           }else if(route.name == 'Settings'){
             iconName = focused ? 'account-settings':'account-settings-outline';
-          }else if(route.name == 'Notifications'){
-            iconName = focused ? 'bell-alert':'bell-alert-outline';
           }
           return <MaterialCommunityIcons name = {iconName} size={size} colour={colour}/>
           
@@ -52,7 +50,6 @@ const TabNavigation = () => {
         <Tab.Screen name="Monitor" component={MonitorScreen} options={{headerShown: false}}/>
         <Tab.Screen name="Sensors" component={SensorScreen} options={{headerShown: false}}/>
         <Tab.Screen name="Statistics" component={StatisticsScreen} options={{headerShown: false}}/>
-        <Tab.Screen name="Notifications" component={NotificationsScreen} options={{headerShown: false}}/>
         <Tab.Screen name="Settings" component={SettingsScreen} options={{headerShown: false}}/>
         
     </Tab.Navigator>
